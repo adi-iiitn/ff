@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Tournament</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e202d, #232946);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #f72585, #7209b7, #4361ee);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: #2a2d3e;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #f72585;
+            margin-bottom: 1.5rem;
+        }
+
+        .details {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 1rem 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .details img:hover {
+            transform: scale(1.05);
+        }
+
+        .details p {
+            margin-top: 1rem;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #d1d1e9;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #d1d1e9;
+        }
+
+        input, select, button {
+            padding: 0.9rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        input, select {
+            background: #1e202d;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        input:focus, select:focus {
+            box-shadow: 0 0 10px #f72585;
+        }
+
+        button {
+            background: linear-gradient(90deg, #f72585, #7209b7);
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #7209b7, #f72585);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .success-message {
+            color: #4caf50;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .error-message {
+            color: #f44336;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            background: #1e202d;
+            color: #d1d1e9;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #f72585;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Free Fire Tournament</h1>
+        <p>Compete with the best and win exciting prizes every Sunday!</p>
+    </header>
+    <div class="container">
+        <h2>About the Tournament</h2>
+        <div class="details">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.0IoDwOstyh77Z0UUU0PatgHaEK&pid=Api&P=0&h=180" alt="Tournament Banner">
+            <p>Join our weekly Free Fire tournament and showcase your skills. Compete against top players and grab your chance to win amazing rewards. Registration is open for everyone, so gear up and join the battle!</p>
+        </div>
+        <h2>Register Now</h2>
+        <form id="registrationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="playerID">Free Fire Player ID:</label>
+            <input type="text" id="playerID" name="playerID" placeholder="Enter your Free Fire Player ID" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p class="success-message" id="successMessage" style="display: none;">Registration successful!</p>
+        <p class="error-message" id="errorMessage" style="display: none;">An error occurred. Please try again.</p>
+    </div>
+    <footer>
+        &copy; 2024 Free Fire Tournament. Designed with <span style="color: #f72585;">❤</span> by <a href="#">FF ESPORTS</a>
+    </footer>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwvZvPYxgwBrQh4xKpIAO7RL6aSpDR2qup5WMgKYu2lqwbrzFop3jNtY96KPbBEIGk/exec'; // Replace with your Google Apps Script URL
+        const form = document.getElementById('registrationForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                errorMessage.style.display = 'block';
+                console.error('Error!', error.message);
+            }
+        });
+    </script>
+</body>
+</html>
