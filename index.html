@@ -1,215 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Fire Tournament</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1e202d, #232946);
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: linear-gradient(90deg, #f72585, #7209b7, #4361ee);
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 700;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 3rem auto;
-            background: #2a2d3e;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            text-align: center;
-            color: #f72585;
-            margin-bottom: 1.5rem;
-        }
-
-        .details {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .details img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin: 1rem 0;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .details img:hover {
-            transform: scale(1.05);
-        }
-
-        .details p {
-            margin-top: 1rem;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            color: #d1d1e9;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        label {
-            font-size: 1rem;
-            color: #d1d1e9;
-        }
-
-        input, select, button {
-            padding: 0.9rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            outline: none;
-            transition: box-shadow 0.3s ease-in-out;
-        }
-
-        input, select {
-            background: #1e202d;
-            color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        input:focus, select:focus {
-            box-shadow: 0 0 10px #f72585;
-        }
-
-        button {
-            background: linear-gradient(90deg, #f72585, #7209b7);
-            color: #fff;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        button:hover {
-            background: linear-gradient(90deg, #7209b7, #f72585);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .success-message {
-            color: #4caf50;
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .error-message {
-            color: #f44336;
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-            background: #1e202d;
-            color: #d1d1e9;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #f72585;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BattleZone Arena - Free Fire Esports</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: #ff4757;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    #volumeBtn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .hero img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      color: #ddd;
+    }
+    .section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    h2 {
+      color: #ffa502;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .tournament-list ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    .tournament-list li {
+      background: #2f3542;
+      padding: 15px 20px;
+      border-left: 6px solid #ffa502;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      position: relative;
+    }
+    .tournament-details {
+      display: none;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 10px;
+    }
+    .show-btn {
+      background: #ffa502;
+      color: #111;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .qr-section {
+      text-align: center;
+    }
+    .qr-section img {
+      width: 180px;
+      margin: 20px 0;
+      border: 3px solid #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .qr-section p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, select, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    input[type="file"] {
+      background: #fff;
+    }
+    button {
+      background: #ffa502;
+      color: #111;
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e69500;
+    }
+    #status {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #00ff99;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2f3542;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Free Fire Tournament</h1>
-        <p>Compete with the best and win exciting prizes every Sunday!</p>
-    </header>
-    <div class="container">
-        <h2>About the Tournament</h2>
-        <div class="details">
-            <img src="https://tse3.mm.bing.net/th?id=OIP.0IoDwOstyh77Z0UUU0PatgHaEK&pid=Api&P=0&h=180" alt="Tournament Banner">
-            <p>Join our weekly Free Fire tournament and showcase your skills. Compete against top players and grab your chance to win amazing rewards. Registration is open for everyone, so gear up and join the battle!</p>
-        </div>
-        <h2>Register Now</h2>
-        <form id="registrationForm">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+  <!-- Background music -->
+  <audio id="bgMusic" loop>
+    <source src="Kosandra - SamWep.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+  <header>
+    <h1>BattleZone </h1>
+    <button id="volumeBtn"><i id="volumeIcon" class="fas fa-volume-up"></i></button>
+  </header>
 
-            <label for="playerID">Free Fire Player ID:</label>
-            <input type="text" id="playerID" name="playerID" placeholder="Enter your Free Fire Player ID" required>
-
-            <button type="submit">Register</button>
-        </form>
-        <p class="success-message" id="successMessage" style="display: none;">Registration successful!</p>
-        <p class="error-message" id="errorMessage" style="display: none;">An error occurred. Please try again.</p>
+  <div class="container">
+    <div class="hero">
+      <img src="https://tse4.mm.bing.net/th?id=OIP.HAYdecVuAq5v24YcTIcT3gHaEK&pid=Api&P=0&h=180" alt="Free Fire Tournament">
+      <p>Join the most thrilling Free Fire battles and win real cash prizes! 100% Secure Registration!</p>
     </div>
-    <footer>
-        &copy; 2025 Free Fire Tournament. Designed with <span style="color: #f72585;">❤</span> by <a href="#">FF ESPORTS</a>
-    </footer>
 
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwvZvPYxgwBrQh4xKpIAO7RL6aSpDR2qup5WMgKYu2lqwbrzFop3jNtY96KPbBEIGk/exec'; // Replace with your Google Apps Script URL
-        const form = document.getElementById('registrationForm');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
+    <div class="section tournament-list">
+      <h2><i class="fa-solid fa-fire"></i> Available Tournaments</h2>
+      <ul>
+        <li>
+          <strong><i class="fa-solid fa-trophy" style="color:gold; margin-right: 8px;"></i>Sunday Clash Cup - ₹50 Entry</strong><br>
+          <button class="show-btn" onclick="toggleDetails(this)">Show Details</button>
+          <div class="tournament-details">Date: Sunday, 11 May 2025<br>Time: 5:00 PM<br>Mode: Solo<br>1st Prize: ₹500<br>Per Kill: ₹10</div>
+        </li>
+        <li>
+          <strong><i class="fa-solid fa-trophy" style="color:gold; margin-right: 8px;"></i>Sniper Showdown - ₹30 Entry</strong><br>
+          <button class="show-btn" onclick="toggleDetails(this)">Show Details</button>
+          <div class="tournament-details">Date: Wednesday, 14 May 2025<br>Time: 7:00 PM<br>Mode: Sniper Only<br>1st Prize: ₹300<br>Per Kill: ₹5</div>
+        </li>
+        <li>
+          <strong><i class="fa-solid fa-trophy" style="color:gold; margin-right: 8px;"></i>Squad Battle Royale - ₹100 Entry</strong><br>
+          <button class="show-btn" onclick="toggleDetails(this)">Show Details</button>
+          <div class="tournament-details">Date: Friday, 16 May 2025<br>Time: 9:00 PM<br>Mode: Squad<br>1st Prize: ₹1000<br>Per Kill: ₹20</div>
+        </li>
+      </ul>
+    </div>
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
+    <div class="section qr-section">
+      <h2><i class="fa-solid fa-indian-rupee-sign"></i> Pay Entry Fee</h2>
+      <p>Scan the QR code below and pay the entry fee to <strong>battlezone@upi</strong></p>
+      <img src="https://tse4.mm.bing.net/th?id=OIP.sP9r_TNL8-lZBwnnyxd92AHaHX&pid=Api&P=0&h=180" alt="UPI QR Code">
+    </div>
 
-            const formData = new FormData(form);
+    <div class="section">
+      <h2><i class="fa-solid fa-pen"></i> Registration Form</h2>
+      <form id="regForm">
+        <input type="text" name="name" placeholder="Player Name" required>
+        <input type="text" name="mobile" placeholder="Mobile Number" required>
+        <input type="text" name="ffuid" placeholder="Free Fire UID" required>
+        <select name="tournament" required>
+          <option value="">-- Select Tournament --</option>
+          <option value="Sunday Clash Cup">Sunday Clash Cup</option>
+          <option value="Sniper Showdown">Sniper Showdown</option>
+          <option value="Squad Battle Royale">Squad Battle Royale</option>
+        </select>
+        <input type="text" name="txn" placeholder="UPI Transaction ID" required>
+        <input type="file" name="screenshot" accept="image/*" required>
+        <input type="email" name="email" placeholder="Email for Confirmation" required>
+        <button type="submit">Submit Registration</button>
+      </form>
+      <div id="status"></div>
+    </div>
+  </div>
 
-            try {
-                const response = await fetch(scriptURL, {
-                    method: 'POST',
-                    body: formData
-                });
+  <footer>
+    <p>&copy; 2025 BattleZone Arena. All Rights Reserved. | Powered by Gamers, for Gamers</p>
+  </footer>
 
-                if (response.ok) {
-                    successMessage.style.display = 'block';
-                    form.reset();
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            } catch (error) {
-                errorMessage.style.display = 'block';
-                console.error('Error!', error.message);
-            }
+  <script>
+    function toggleDetails(button) {
+      const details = button.nextElementSibling;
+      if (details.style.display === 'block') {
+        details.style.display = 'none';
+        button.innerText = 'Show Details';
+      } else {
+        details.style.display = 'block';
+        button.innerText = 'Hide Details';
+      }
+    }
+
+    const form = document.getElementById('regForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      status.innerText = "Submitting your registration...";
+      setTimeout(() => {
+        status.innerHTML = "✅ Registration submitted! We will verify your payment and contact you soon.";
+        form.reset();
+
+        const phoneNumber = "91XXXXXXXXXX"; // Replace with your number
+        const message = encodeURIComponent("Hi, I have submitted my registration for the Free Fire tournament.");
+        const url = `https://wa.me/${phoneNumber}?text=${message}`;
+        // window.open(url, "_blank");
+      }, 2000);
+    });
+
+    const bgMusic = document.getElementById("bgMusic");
+    const volumeBtn = document.getElementById("volumeBtn");
+    const volumeIcon = document.getElementById("volumeIcon");
+
+    // Attempt autoplay or fallback to first user click
+    document.addEventListener("DOMContentLoaded", () => {
+      const playPromise = bgMusic.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const unlockAudio = () => {
+            bgMusic.play().catch(() => {});
+            document.removeEventListener("click", unlockAudio);
+          };
+          document.addEventListener("click", unlockAudio);
         });
-    </script>
+      }
+    });
+
+    // Volume control
+    volumeBtn.addEventListener("click", () => {
+      bgMusic.muted = !bgMusic.muted;
+      volumeIcon.className = bgMusic.muted ? "fas fa-volume-mute" : "fas fa-volume-up";
+    });
+  </script>
 </body>
 </html>
