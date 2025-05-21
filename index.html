@@ -2,287 +2,220 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BattleZone Arena - Free Fire Esports</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Fire Tournament Registration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
     body {
-      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
-      color: #fff;
-      line-height: 1.6;
-    }
-    header {
-      background: #ff4757;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d0d0d;
+      color: #f1f1f1;
       padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      position: relative;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #fff;
-      letter-spacing: 1px;
-    }
-    #volumeBtn {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
     }
     .container {
-      padding: 40px 20px;
-      max-width: 1000px;
+      max-width: 700px;
       margin: auto;
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     }
-    .hero {
+    h1 {
       text-align: center;
-      margin-bottom: 40px;
-    }
-    .hero img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 15px;
-      color: #ddd;
-    }
-    .section {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 25px;
-      margin-bottom: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    h2 {
-      color: #ffa502;
+      color: #ff4757;
       margin-bottom: 20px;
-      font-size: 1.8rem;
     }
-    .tournament-list ul {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 15px;
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
     }
-    .tournament-list li {
-      background: #2f3542;
-      padding: 15px 20px;
-      border-left: 6px solid #ffa502;
+    input, select {
+      width: 100%;
+      padding: 10px;
       border-radius: 8px;
-      font-size: 1.1rem;
-      position: relative;
-    }
-    .tournament-details {
-      display: none;
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 10px;
-    }
-    .show-btn {
-      background: #ffa502;
-      color: #111;
-      padding: 6px 12px;
-      font-size: 0.9rem;
       border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .qr-section {
-      text-align: center;
-    }
-    .qr-section img {
-      width: 180px;
-      margin: 20px 0;
-      border: 3px solid #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-    .qr-section p {
-      font-size: 1rem;
-      color: #ccc;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    input, select, textarea {
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    input[type="file"] {
-      background: #fff;
+      outline: none;
+      margin-bottom: 10px;
     }
     button {
-      background: #ffa502;
-      color: #111;
-      padding: 14px;
+      background-color: #ff4757;
       border: none;
-      border-radius: 6px;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 10px;
       cursor: pointer;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
+      width: 100%;
+      transition: 0.3s ease;
     }
     button:hover {
-      background: #e69500;
+      background-color: #e84118;
     }
-    #status {
-      text-align: center;
-      margin-top: 20px;
+    .section {
+      margin: 25px 0;
+    }
+    .status {
+      margin-top: 15px;
       font-weight: bold;
-      color: #00ff99;
+      color: #2ed573;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #2f3542;
-      color: #aaa;
-      font-size: 0.9rem;
+    .details-box {
+      display: none;
+      margin-top: 10px;
+      background: #333;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    audio {
+      display: none;
+    }
+    .volume-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #111;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .volume-control i {
+      color: #fff;
+      font-size: 20px;
     }
   </style>
 </head>
 <body>
+  <div class="volume-control" id="volumeBtn">
+    <i class="fas fa-volume-up" id="volumeIcon"></i>
+  </div>
 
-  <!-- Background music -->
-  <audio id="bgMusic" loop>
-    <source src="Kosandra - SamWep.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+  <audio id="bgMusic" autoplay loop muted>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/23/audio_9b254d6c51.mp3?filename=battle-hip-hop-115318.mp3" type="audio/mp3" />
   </audio>
 
-  <header>
-    <h1>BattleZone </h1>
-    <button id="volumeBtn"><i id="volumeIcon" class="fas fa-volume-up"></i></button>
-  </header>
-
   <div class="container">
-    <div class="hero">
-      <img src="https://tse4.mm.bing.net/th?id=OIP.HAYdecVuAq5v24YcTIcT3gHaEK&pid=Api&P=0&h=180" alt="Free Fire Tournament">
-      <p>Join the most thrilling Free Fire battles and win real cash prizes! 100% Secure Registration!</p>
-    </div>
+    <h1>🔥 Free Fire Tournament 🔥</h1>
 
-    <div class="section tournament-list">
-      <h2><i class="fa-solid fa-fire"></i> Available Tournaments</h2>
-      <ul>
-        <li>
-          <strong><i class="fa-solid fa-trophy" style="color:gold; margin-right: 8px;"></i>Sunday Clash Cup - ₹50 Entry</strong><br>
-          <button class="show-btn" onclick="toggleDetails(this)">Show Details</button>
-          <div class="tournament-details">Date: Sunday, 11 May 2025<br>Time: 5:00 PM<br>Mode: Solo<br>1st Prize: ₹500<br>Per Kill: ₹10</div>
-        </li>
-        <li>
-          <strong><i class="fa-solid fa-trophy" style="color:gold; margin-right: 8px;"></i>Sniper Showdown - ₹30 Entry</strong><br>
-          <button class="show-btn" onclick="toggleDetails(this)">Show Details</button>
-          <div class="tournament-details">Date: Wednesday, 14 May 2025<br>Time: 7:00 PM<br>Mode: Sniper Only<br>1st Prize: ₹300<br>Per Kill: ₹5</div>
-        </li>
-        <li>
-          <strong><i class="fa-solid fa-trophy" style="color:gold; margin-right: 8px;"></i>Squad Battle Royale - ₹100 Entry</strong><br>
-          <button class="show-btn" onclick="toggleDetails(this)">Show Details</button>
-          <div class="tournament-details">Date: Friday, 16 May 2025<br>Time: 9:00 PM<br>Mode: Squad<br>1st Prize: ₹1000<br>Per Kill: ₹20</div>
-        </li>
-      </ul>
-    </div>
+    <form id="regForm">
+      <label><i class="fa-solid fa-user"></i> Player Name</label>
+      <input type="text" name="name" placeholder="Enter your in-game name" required />
 
-    <div class="section qr-section">
-      <h2><i class="fa-solid fa-indian-rupee-sign"></i> Pay Entry Fee</h2>
-      <p>Scan the QR code below and pay the entry fee to <strong>battlezone@upi</strong></p>
-      <img src="https://tse4.mm.bing.net/th?id=OIP.sP9r_TNL8-lZBwnnyxd92AHaHX&pid=Api&P=0&h=180" alt="UPI QR Code">
-    </div>
+      <label><i class="fa-solid fa-phone"></i> WhatsApp Number</label>
+      <input type="tel" name="whatsapp" placeholder="Enter your WhatsApp number" required pattern="[0-9]{10}" />
+
+      <label><i class="fa-solid fa-gamepad"></i> Tournament</label>
+      <select name="tournament" required>
+        <option value="">-- Select Tournament --</option>
+        <option value="Sunday Clash Cup">Sunday Clash Cup - ₹50</option>
+        <option value="Sniper Showdown">Sniper Showdown - ₹1</option>
+        <option value="Squad Battle Royale">Squad Battle Royale - ₹100</option>
+      </select>
+
+      <div class="section qr-section">
+        <h2><i class="fa-solid fa-indian-rupee-sign"></i> Pay Entry Fee</h2>
+        <p>Select a tournament and click the button below to pay securely via Razorpay.</p>
+        <button type="button" id="rzp-button">Pay Now</button>
+      </div>
+
+      <label><i class="fa-solid fa-money-bill-wave"></i> Razorpay Payment ID</label>
+      <input type="text" name="txn" readonly placeholder="Payment ID will appear here after payment" required />
+
+      <button type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Registration</button>
+      <div id="status" class="status"></div>
+    </form>
 
     <div class="section">
-      <h2><i class="fa-solid fa-pen"></i> Registration Form</h2>
-      <form id="regForm">
-        <input type="text" name="name" placeholder="Player Name" required>
-        <input type="text" name="mobile" placeholder="Mobile Number" required>
-        <input type="text" name="ffuid" placeholder="Free Fire UID" required>
-        <select name="tournament" required>
-          <option value="">-- Select Tournament --</option>
-          <option value="Sunday Clash Cup">Sunday Clash Cup</option>
-          <option value="Sniper Showdown">Sniper Showdown</option>
-          <option value="Squad Battle Royale">Squad Battle Royale</option>
-        </select>
-        <input type="text" name="txn" placeholder="UPI Transaction ID" required>
-        <input type="file" name="screenshot" accept="image/*" required>
-        <input type="email" name="email" placeholder="Email for Confirmation" required>
-        <button type="submit">Submit Registration</button>
-      </form>
-      <div id="status"></div>
+      <button onclick="toggleDetails(this)">Show Details</button>
+      <div class="details-box">
+        <p>🏆 Tournaments conducted every Sunday</p>
+        <p>📞 Contact: 9876543210 (WhatsApp only)</p>
+        <p>🎁 Prizes worth ₹1000+ every week!</p>
+      </div>
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2025 BattleZone Arena. All Rights Reserved. | Powered by Gamers, for Gamers</p>
-  </footer>
-
   <script>
-    function toggleDetails(button) {
-      const details = button.nextElementSibling;
-      if (details.style.display === 'block') {
-        details.style.display = 'none';
-        button.innerText = 'Show Details';
-      } else {
-        details.style.display = 'block';
-        button.innerText = 'Hide Details';
-      }
-    }
-
+    const tournamentSelect = document.querySelector('select[name="tournament"]');
+    const txnInput = document.querySelector('input[name="txn"]');
+    const payBtn = document.getElementById("rzp-button");
     const form = document.getElementById('regForm');
     const status = document.getElementById('status');
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      status.innerText = "Submitting your registration...";
-      setTimeout(() => {
-        status.innerHTML = "✅ Registration submitted! We will verify your payment and contact you soon.";
-        form.reset();
+    const tournamentFees = {
+      "Sunday Clash Cup": 50,
+      "Sniper Showdown": 1,
+      "Squad Battle Royale": 100
+    };
 
-        const phoneNumber = "91XXXXXXXXXX"; // Replace with your number
-        const message = encodeURIComponent("Hi, I have submitted my registration for the Free Fire tournament.");
-        const url = `https://wa.me/${phoneNumber}?text=${message}`;
-        // window.open(url, "_blank");
-      }, 2000);
+    payBtn.addEventListener("click", function () {
+      const selectedTournament = tournamentSelect.value;
+      if (!selectedTournament) {
+        alert("Please select a tournament before paying.");
+        return;
+      }
+
+      const amount = tournamentFees[selectedTournament];
+
+      const options = {
+        key: "rzp_live_d2jp6KoawvkISz", // Replace with your live Razorpay Key
+        amount: amount * 100,
+        currency: "INR",
+        name: "BattleZone Arena by Atarra Foods",
+        description: selectedTournament + " Entry Fee",
+        image: "https://tse4.mm.bing.net/th?id=OIP.HAYdecVuAq5v24YcTIcT3gHaEK&pid=Api&P=0&h=180",
+        handler: function (response) {
+          txnInput.value = response.razorpay_payment_id;
+
+          const name = form.name.value.trim();
+          const whatsapp = form.whatsapp.value.trim();
+          const tournament = tournamentSelect.value;
+          const txn = response.razorpay_payment_id;
+
+          // 🔁 Replace this with your actual prefilled Google Form URL and correct entry IDs
+          const googleFormURL = `https://docs.google.com/forms/d/e/1FAIpQLSfzCwtZr8fKru5kFb0ey3kAwoJwvt0_t2ywaPIGWJoMkoQErA/viewform?usp=pp_url&entry.819385172=${encodeURIComponent(name)}&entry.397061208=${encodeURIComponent(whatsapp)}&entry.1644685289=${encodeURIComponent(tournament)}&entry.2118280584=${encodeURIComponent(txn)}`;
+
+          alert("✅ Payment successful! Redirecting you to final registration...");
+          window.location.href = googleFormURL;
+        },
+        theme: {
+          color: "#ff4757"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
     });
 
+    function toggleDetails(button) {
+      const details = button.nextElementSibling;
+      details.style.display = details.style.display === 'block' ? 'none' : 'block';
+      button.innerText = details.style.display === 'block' ? 'Hide Details' : 'Show Details';
+    }
+
+    // Optional: Prevent form submission now that we're redirecting to Google Form
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Please complete payment first, you'll be redirected to final form after payment.");
+    });
+
+    // Music control
     const bgMusic = document.getElementById("bgMusic");
     const volumeBtn = document.getElementById("volumeBtn");
     const volumeIcon = document.getElementById("volumeIcon");
 
-    // Attempt autoplay or fallback to first user click
-    document.addEventListener("DOMContentLoaded", () => {
-      const playPromise = bgMusic.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          const unlockAudio = () => {
-            bgMusic.play().catch(() => {});
-            document.removeEventListener("click", unlockAudio);
-          };
-          document.addEventListener("click", unlockAudio);
-        });
-      }
-    });
-
-    // Volume control
     volumeBtn.addEventListener("click", () => {
-      bgMusic.muted = !bgMusic.muted;
-      volumeIcon.className = bgMusic.muted ? "fas fa-volume-mute" : "fas fa-volume-up";
+      if (bgMusic.muted) {
+        bgMusic.muted = false;
+        volumeIcon.classList.remove("fa-volume-mute");
+        volumeIcon.classList.add("fa-volume-up");
+      } else {
+        bgMusic.muted = true;
+        volumeIcon.classList.remove("fa-volume-up");
+        volumeIcon.classList.add("fa-volume-mute");
+      }
     });
   </script>
 </body>
